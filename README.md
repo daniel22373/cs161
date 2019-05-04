@@ -1,2 +1,4 @@
-# cs161
+# CS161: Design and Analysis of Algorithms
 Programming assignments from Stanford's CS161: Design and Analysis of Algorithms, written in C++.
+
+From https://www.coursera.org/specializations/algorithms: Topics: "asymptotic ('Big-oh') notation, sorting and searching, divide and conquer (master method, integer and matrix multiplication, closest pair), and randomized algorithms (QuickSort, contraction algorithm for min cuts)... data structures (heaps, balanced search trees, hash tables, bloom filters), graph primitives (applications of breadth-first and depth-first search, connectivity, shortest paths), and their applications (ranging from deduplication to social network analysis)... greedy algorithms (scheduling, minimum spanning trees, clustering, Huffman codes) and dynamic programming (knapsack, sequence alignment, optimal search trees)... shortest paths (Bellman-Ford, Floyd-Warshall, Johnson), NP-completeness and what it means for the algorithm designer, and strategies for coping with computationally intractable problems (analysis of heuristics, local search)."
