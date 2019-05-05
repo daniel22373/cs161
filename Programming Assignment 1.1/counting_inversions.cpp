@@ -9,13 +9,13 @@
 
 using namespace std;
 
-tuple<int, vector<int>> merge_and_count(vector<int> a, vector<int> b) {
+tuple<long long int, vector<int>> merge_and_count(vector<int> a, vector<int> b) {
 	vector<int> c;
 	int sentinel = max(* max_element(a.begin(), a.end()) + 1, * max_element(b.begin(), b.end()) + 1);
 	a.push_back(sentinel);
 	b.push_back(sentinel);
 
-	int inversions = 0;
+	long long int inversions = 0;
 
 	int j = 0;
 	int k = 0;
@@ -28,28 +28,31 @@ tuple<int, vector<int>> merge_and_count(vector<int> a, vector<int> b) {
 			inversions += (a.size() - j - 1);
 			c.push_back(b[k]);
 			k++;
+		} else if (a[j] == b[k]) {
+			c.push_back(a[j]);
+			j++;
 		} else {
 			c.push_back(b[k]);
 			k++;
 		}
 	}
 
-	tuple<int, vector<int>> output (inversions, c);
+	tuple<long long int, vector<int>> output (inversions, c);
 
 	return output;
 }
 
-tuple<int, vector<int>> sort_and_count_inversions(vector<int> v) {
+tuple<long long int, vector<int>> sort_and_count_inversions(vector<int> v) {
 	if (v.size() == 1) {
-		tuple<int, vector<int>> base_case (0, v);
+		tuple<long long int, vector<int>> base_case (0, v);
 		return base_case;
 	}
 
-	tuple<int, vector<int>> x = sort_and_count_inversions(vector<int> (v.begin(), v.end() - floor((double) v.size()/2)));
-	tuple<int, vector<int>> y = sort_and_count_inversions(vector<int> (v.begin() + ceil((double) v.size()/2), v.end()));
-	tuple<int, vector<int>> z = merge_and_count(get<1>(x), get<1>(y));
+	tuple<long long int, vector<int>> x = sort_and_count_inversions(vector<int> (v.begin(), v.end() - floor((double) v.size()/2)));
+	tuple<long long int, vector<int>> y = sort_and_count_inversions(vector<int> (v.begin() + ceil((double) v.size()/2), v.end()));
+	tuple<long long int, vector<int>> z = merge_and_count(get<1>(x), get<1>(y));
 
-	tuple<int, vector<int>> output (get<0>(x) + get<0>(y) + get<0>(z), get<1>(z));
+	tuple<long long int, vector<int>> output (get<0>(x) + get<0>(y) + get<0>(z), get<1>(z));
 
 	return output;
 }
