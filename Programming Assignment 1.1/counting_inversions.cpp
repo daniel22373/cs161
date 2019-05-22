@@ -256,14 +256,14 @@ int main() {
 	testVectorAllSame();
 	testVectorLargeNumbers();
 
-	vector<int> problem;
-	string line;
-	ifstream inputVector ("IntegerArray.txt");
-	if (inputVector.is_open()) {
-		while (getline(inputVector, line))
-			problem.push_back(stoi(line));
-		inputVector.close();
-	}
+//	vector<int> problem;
+//	string line;
+//	ifstream inputVector ("IntegerArray.txt");
+//	if (inputVector.is_open()) {
+//		while (getline(inputVector, line))
+//			problem.push_back(stoi(line));
+//		inputVector.close();
+//	}
 
 	cout << "This vector has " << get<0>(sort_and_count_inversions(problem)) << " inversions." << endl;
 
